@@ -457,30 +457,30 @@ for epoch in range(epochs):
                  })
 
 
-        if accuracy_test_best< accuracy_test:
-
-            accuracy_test_best = accuracy_test
-            # Get current day and month
-            current_time = datetime.now()
-            day = current_time.day
-            month = current_time.month
-            hour = current_time.hour
-            # Create folder path using day and month
-            folder_path = f"/scratch/bbjr/abedsol1/ICL_parity_saved_models/" \
-                          f"{args.data_method}_d{d}_k{k}/cot_{args.cot}"
-
-
-            # Create the folder if it does not exist
-            os.makedirs(folder_path, exist_ok=True)
-
-            # Construct the save path within the folder
-            save_path = os.path.join(
-                folder_path,
-                f"d{d}_k{k}_model_{args.model_type}_context_length{N}_nlayers{args.n_layers}"
-                f"_nheads{args.n_heads}_ntrain_tasks{train_size}_ntrain_task{args.n_train_tasks}"
-                f"n_train_total{args.n_train_total}_epoch_{epoch + 1}_width{args.gpt2_width}.pt"
-            )
-            torch.save(model.state_dict(), save_path)
-            print(f"Model saved at {save_path}")
+        # if accuracy_test_best< accuracy_test:
+        #
+        #     accuracy_test_best = accuracy_test
+        #     # Get current day and month
+        #     current_time = datetime.now()
+        #     day = current_time.day
+        #     month = current_time.month
+        #     hour = current_time.hour
+        #     # Create folder path using day and month
+        #     folder_path = f"/scratch/bbjr/abedsol1/ICL_parity_saved_models/" \
+        #                   f"{args.data_method}_d{d}_k{k}/cot_{args.cot}"
+        #
+        #
+        #     # Create the folder if it does not exist
+        #     os.makedirs(folder_path, exist_ok=True)
+        #
+        #     # Construct the save path within the folder
+        #     save_path = os.path.join(
+        #         folder_path,
+        #         f"d{d}_k{k}_model_{args.model_type}_context_length{N}_nlayers{args.n_layers}"
+        #         f"_nheads{args.n_heads}_ntrain_tasks{train_size}_ntrain_task{args.n_train_tasks}"
+        #         f"n_train_total{args.n_train_total}_epoch_{epoch + 1}_width{args.gpt2_width}.pt"
+        #     )
+        #     torch.save(model.state_dict(), save_path)
+        #     print(f"Model saved at {save_path}")
 
 
